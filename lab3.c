@@ -7,26 +7,28 @@ int main()
   scanf("%lf", &h );
   printf("Vvedite nachalnoe znachenie x:");
   scanf("%lf",&x);
-  printf(" x \t f(x) ");
+  printf(" x \t \t f(x) ");
   printf(" \n--------------------- ");
 
-  
+
     do {
-      printf(" \n %lf ", x);
-      y = pow(x, 2) * sin( sqrt(pow (x, 1.0 / 3)) - 3);
-      printf(" \t %lf ", y);
-      x = x + h;
-    }while(x >= -2.0 && x <= 0.0);
-
-
-
-    do{
-      printf(" \n %lf ", x);
-      y = sqrt(x) * cos(2*x);
-      printf(" \t %lf ", y);
-      x = x + h;
-    }while( x > 0.0 && x <= 1.0 );
-
+      if (x >= -2 && x <= 0)
+      {
+        printf(" \n %lf ", x);
+        y = pow(x, 2) * sin( sqrt(pow (x, 1.0 / 3)) - 3);
+        printf(" \t %lf ", y);
+        x=floorf(x*100000000)/100000000;
+        x = x + h;
+      }
+      if (x > 0 && x <= 1)
+      {
+        printf(" \n %lf ", x);
+        y = sqrt(x) * cos(2*x);
+        printf(" \t %lf ", y);
+        x=floorf(x*100000000)/100000000;
+        x = x + h;
+      }
+    }while(x >= -2 && x <= 1);
 
   return 0;
 }
