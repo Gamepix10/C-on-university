@@ -2,11 +2,11 @@
 #include <math.h>
 int main()
 {
-  double h,x,y;
+  long double h,x,y;
   printf(" Vvedite znachenie shaga: ");
-  scanf("%lf", &h );
+  scanf("%Lf", &h );
   printf("Vvedite nachalnoe znachenie x:");
-  scanf("%lf",&x);
+  scanf("%Lf",&x);
   printf(" x \t \t f(x) ");
   printf(" \n--------------------- ");
 
@@ -14,18 +14,18 @@ int main()
     do {
       if (x >= -2 && x <= 0)
       {
-        printf(" \n %lf ", x);
+        printf(" \n %.5Lf ", x);
         y = pow(x, 2) * sin( sqrt(pow (x, 1.0 / 3)) - 3);
-        printf(" \t %lf ", y);
-        x=floorf(x*100000000)/100000000;
+        printf(" \t %.5Lf ", y);
+        x=floorf(x*10000000)/10000000;
         x = x + h;
       }
       if (x > 0 && x <= 1)
       {
-        printf(" \n %lf ", x);
+        printf(" \n %.5Lf ", x);
         y = sqrt(x) * cos(2*x);
-        printf(" \t %lf ", y);
-        x=floorf(x*100000000)/100000000;
+        printf(" \t %.5Lf ", y);
+        x=floorf(x*10000000)/10000000;
         x = x + h;
       }
     }while(x >= -2 && x <= 1);
