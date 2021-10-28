@@ -1,26 +1,46 @@
 #include <stdio.h>
 #include <math.h>
 
-unsigned int sum1(unsigned int a, unsigned int b);
-unsigned int sum2(unsigned int a, unsigned int b);
+int sum1( int a, int b);
+int sum2( int a, int b);
 
 int main()
 {
-  unsigned int x,y;
+  int x,y;
   printf(" Vvedite znachenie x: ");
   scanf(" %u ", &x);
   printf(" Vvedite znachenie y: ");
   scanf(" %u ", &y);
   printf(" Cycle= %u ", sum1( x , y ));
-  printf(" Recursia= %u ", sum2( x , y ));
+  //printf(" Recursia= %u ", sum2( x , y ));
+  return 0;
 }
 
-unsigned int sum1(unsigned int a, unsigned int b) {
-    for(unsigned int i=0;i<a;i++)
-      b++;
+int sum1( int a, int b) {
+    for( int i=0;i<fabs(a);i++)
+    {
+      if(b>0)
+      {
+        if (a>0)
+          b++;
+        else if (a<0)
+          b--;
+        else
+          b=b;
+      }
+      if(b<0)
+      {
+        if(a>0)
+          ++b;
+        else if(a<0)
+          --b;
+        else
+          b=b;
+      }
+    }
+
     return b;
 }
-
-unsigned int sum2(unsigned int a, unsigned int b) {
-    return ( b > 0 ) ? sum2(++a, --b) : ( b < 0 ) ? sum2(--a, ++b) : a;
-}
+//int sum2( int a, int b) {
+  //  return ( b > 0 ) ? sum2(++a, --b) : ( b < 0 ) ? sum2(--a, ++b) : a;
+//}
